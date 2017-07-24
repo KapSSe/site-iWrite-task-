@@ -19,7 +19,11 @@ a {
   align-items: center;
   box-shadow: 0 2px 20px black;
   padding: 40px 0;
-  background-color: #deb15a; }
+  background-color: #deb15a;
+  transition: .5s; }
+  .header-wrap--active {
+    padding-bottom: 80px;
+    transition: .5s; }
 
 .ordlogo {
   display: flex;
@@ -39,6 +43,7 @@ a {
 
 .nav {
   display: flex;
+  transition: 2s;
   align-items: center;
   margin-left: -1%; }
   .nav__item {
@@ -97,23 +102,58 @@ a {
     margin-left: 10%;
     font-size: 1.22em;
     color: #5d5b50; }
+    .user__like:hover {
+      color: #990000;
+      transition: .5s; }
   .user__notify {
     margin-left: 10%;
     font-size: 1.22em;
     color: #5d5b50; }
+    .user__notify:hover {
+      color: black;
+      transition: .5s; }
   .user__avatar {
     margin-left: 10%;
     font-size: 1.8em;
     color: #5d5b50; }
+    .user__avatar:hover {
+      color: white;
+      transition: .5s; }
+    .user__avatar:hover + .user__menu {
+      color: white;
+      transition: .5s; }
   .user__menu {
     margin-left: 3%;
     color: #5d5b50; }
+  .user__window {
+    visibility: hidden;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    top: 11%;
+    right: 0;
+    opacity: 0;
+    text-transform: capitalize; }
+    .user__window .w-item {
+      color: #424038; }
+      .user__window .w-item .fa {
+        margin-right: 5px; }
+      .user__window .w-item:hover {
+        transition: .5s;
+        color: white; }
+
+.user__window--active {
+  visibility: visible;
+  opacity: 1;
+  transition: 1.5s; }
 
 .taskshead {
   position: relative;
   display: flex;
   align-items: baseline;
-  margin: 50px 5%; }
+  margin: 50px 5%;
+  transition: 1s; }
   .taskshead:after {
     position: absolute;
     bottom: -34px;
@@ -151,7 +191,8 @@ a {
   padding-left: 10px; }
 
 .tasksbody {
-  margin: 0 5%; }
+  margin: 0 5%;
+  transition: 2s; }
   .tasksbody__heading {
     display: flex;
     padding: 50px 0;
@@ -263,18 +304,28 @@ a {
     margin: 50px 0; }
     .taskshead__sort {
       margin-right: 12%; }
+  .user {
+    margin: 0; }
   .tasksbody__heading {
     font-size: 10px; }
   .taskitem {
     font-size: 14px; }
   .resp-menu {
     display: initial; }
+  .nav {
+    position: absolute;
+    justify-content: center;
+    top: 14%;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: .2s; }
+    .nav--translate {
+      top: 17%; }
   .resp-nav {
     display: flex;
-    justify-content: center;
-    position: absolute;
-    top: 14%;
-    text-align: center; }
+    transition: 1.2s;
+    opacity: 1; }
   .nav__item--resp:hover {
     color: green; }
   .balance__current:hover {
@@ -282,8 +333,10 @@ a {
   .balance__done:hover {
     transition: .5s; }
   .resp-taskshead {
+    transition: 1s;
     transform: translateY(5vh); }
   .resp-tasksbody {
+    transition: 2s;
     transform: translateY(5vh); } }
 
 @media all and (max-width: 768px) {

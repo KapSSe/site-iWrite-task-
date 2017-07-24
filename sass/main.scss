@@ -16,6 +16,7 @@ a {
       color: black;
 }
 
+
 .header-wrap {
       display: flex;
       justify-content: space-around;
@@ -23,6 +24,11 @@ a {
       box-shadow: 0 2px 20px black;
       padding: 40px 0;
       background-color: #deb15a;
+      transition: .5s;
+      &--active{
+            padding-bottom:80px;
+            transition: .5s;
+      }
 }
 
 .ordlogo {
@@ -47,6 +53,7 @@ a {
 
 .nav {
       display: flex;
+      transition: 2s;
       align-items: center;
       margin-left: -1%;
       &__item {
@@ -116,21 +123,64 @@ a {
             margin-left: 10%;
             font-size: 1.22em;
             color: #5d5b50;
+            &:hover{
+                  color: darken(red, 20%);
+                  transition: .5s;
+            }
       }
       &__notify {
             margin-left: 10%;
             font-size: 1.22em;
             color: #5d5b50;
+            &:hover{
+                  color: darken(burlywood, 90%);
+                  transition: .5s;
+            }
       }
       &__avatar {
             margin-left: 10%;
             font-size: 1.8em;
             color: #5d5b50;
+            &:hover{
+                  color: white;
+                  transition: .5s;
+            }
+            &:hover + .user__menu{
+                  color: white;
+                  transition: .5s;
+            }
       }
       &__menu {
             margin-left: 3%;
             color: #5d5b50;
       }
+      &__window{
+            visibility: hidden;
+            width:  100%;
+            position: absolute;
+            display: flex;
+            justify-content: space-around;
+            top:11%;
+            right: 0;
+            opacity: 0;
+            text-transform: capitalize;
+            .w-item{
+                  color:darken(#5d5b50, 10%);
+                  .fa{
+                        margin-right:5px;
+                  }
+                  &:hover{
+                        transition: .5s;
+                        color: white;
+                  }
+            }
+      }
+}
+
+.user__window--active{
+      visibility: visible;
+      opacity: 1;
+      transition: 1.5s;
 }
 
 .taskshead {
@@ -138,6 +188,7 @@ a {
       display: flex;
       align-items: baseline;
       margin: 50px 5%;
+      transition: 1s;
       &:after {
             position: absolute;
             bottom: -34px;
@@ -185,6 +236,7 @@ a {
 
 .tasksbody {
       margin: 0 5%;
+      transition: 2s;
       &__heading {
             display: flex;
             padding: 50px 0;
@@ -330,6 +382,10 @@ a {
             }
       }
       
+       .user{
+            margin: 0;
+      } 
+
       .tasksbody__heading{
             font-size: 10px;
       }
@@ -342,13 +398,25 @@ a {
             display: initial;
       }
      
+      .nav{
+            position: absolute;
+            justify-content: center;
+            top:14%;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: .2s;
+            &--translate{
+                  top:17%
+            }
+      }
+
+      
       .resp-nav {
             display: flex;
-            justify-content: center;
-            position: absolute;
-            top: 14%;
-            text-align: center;
-      }
+            transition: 1.2s;
+            opacity: 1;
+      }   
      
       .nav__item--resp {
             &:hover {
@@ -366,10 +434,12 @@ a {
       }
      
       .resp-taskshead {
+            transition: 1s;
             transform: translateY(5vh);
       }
      
       .resp-tasksbody {
+            transition: 2s;
             transform: translateY(5vh);
       }
 }
