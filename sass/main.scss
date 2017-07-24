@@ -3,7 +3,10 @@ body {
       overflow-x: hidden;
 }
 
-h1,h2,h3, p{
+h1,
+h2,
+h3,
+p {
       margin: 0;
       padding: 0;
 }
@@ -35,10 +38,17 @@ a {
       }
 }
 
+.resp-menu {
+      font-size: 1.85em;
+      color: #5d5b50;
+      display: none;
+      order: 1;
+}
+
 .nav {
       display: flex;
       align-items: center;
-      margin-left: -5%;
+      margin-left: -1%;
       &__item {
             transition: .6s;
             color: #5d5b50;
@@ -48,6 +58,12 @@ a {
             text-transform: uppercase;
             &:hover {
                   color: white;
+            }
+            &:last-of-type:hover+.balance :first-of-type {
+                  visibility: visible;
+            }
+            &:last-of-type:hover+.balance :last-of-type {
+                  visibility: visible;
             }
             .fa {
                   padding-right: 10px;
@@ -60,12 +76,18 @@ a {
       flex-direction: column;
       align-items: center;
       &__current {
+            visibility: hidden;
             font-weight: 700;
-            color: #5d5b50;
+            transition: .6s;
+            color: #4c565e;
+            cursor: default;
       }
       &__done {
+            visibility: hidden;
             font-weight: 400;
-            color: #424f5e;
+            transition: .6s;
+            color: #877a5c;
+            cursor: default;
       }
 }
 
@@ -115,10 +137,10 @@ a {
       position: relative;
       display: flex;
       align-items: baseline;
-      padding: 70px 0;
+      margin: 50px 5%;
       &:after {
             position: absolute;
-            bottom: 35px;
+            bottom: -34px;
             content: "";
             display: block;
             width: 100%;
@@ -126,11 +148,11 @@ a {
             background: grey;
       }
       .status-sort {
-            width: 45%;
-            text-align: right;
+            flex: 1 0 50%;
+            text-align: center;
       }
       .id-sort {
-            width: 46%;
+            flex: 1 0 50%;
             text-align: right;
       }
       &__sort {
@@ -141,7 +163,7 @@ a {
             position: relative;
             text-transform: uppercase;
             font-size: 1.2em;
-            margin: 8%;
+            margin: 5%;
             &:hover {
                   color: green;
             }
@@ -162,106 +184,218 @@ a {
 }
 
 .tasksbody {
-      margin:0 4%;
+      margin: 0 5%;
       &__heading {
             display: flex;
             padding: 50px 0;
-            width: 100%;
+            justify-content: space-around;
             font-size: 0.8em;
             color: #5d5b50;
             text-transform: capitalize;
+            cursor: default;
       }
 }
 
 .col {
-      &-heading {
-      width: 100%;
-      margin: auto;
-      text-align: left;
+      &-title {
+            flex: 2 0 29%;
       }
-      &-title{
-      width: calc(100%/6);
+      &-deadline {
+            flex: 1 0 10%;
+            text-align: center;
       }
-      &-deadline{
-      width: calc(100%/7);
-      text-align: center;
+      &-status {
+            flex: 1 0 10%;
+            text-align: center;
       }
-      &-status{
-      width: calc(100%/7);
-      text-align: center;
+      &-assign {
+            flex: 1 0 10%;
+            text-align: center;
       }
-      &-assign{
-      width: calc(100%/7);
-      text-align: center;
+      &-price {
+            flex: 1 0 10%;
+            text-align: center;
       }
-      &-price{
-      width: calc(100%/7);
-      text-align: center;
+      &-id {
+            flex: 1 0 10%;
+            text-transform: uppercase;
+            text-align: center;
       }
-      &-id{
-      width: calc(100%/7);
-      text-align: center;
-      }
-
 }
 
-.taskitem{
+.taskitem {
       display: flex;
       position: relative;
-      font-size:1em;
+      font-size: 1.2em;
       height: 5vh;
-      line-height: 1.15rem;
       text-align: center;
       border-radius: 10px;
-      width: 100%;
       padding: 80px 0;
       margin: 25px auto;
       background: #f3f5f7;
-      align-items: baseline;
-      &:before{
-      content: "";
-      position: absolute;
-      width: 13rem;
-      left: -6.5rem;
-      bottom: 50%;
-
-      height: 2px;
-      transform: rotate(90deg);
-      background: green;
+      align-items: center;
+      &:before {
+            content: "";
+            position: absolute;
+            width: 13rem;
+            left: -6.5rem;
+            bottom: 50%;
+            height: 2px;
+            transform: rotate(90deg);
+            background: green;
       }
-      &__heading{
+      &__heading {
             font-weight: bold;
       }
-      &__title{
-      display: flex;
-      margin-left: 4%;
-      flex-direction: column;
-      width: calc(100%/6);
-      text-align: left;
+      &__title {
+            display: flex;
+            margin-left: 4%;
+            flex-direction: column;
+            flex: 2 0 25%;
+            text-align: left;
       }
-      &__deadline{
-      display: flex;
-      flex-direction: column;
-      width: calc(100%/6);
+      &__deadline {
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 10%;
       }
-      &__status{
-      display: flex;
-      flex-direction: column;
-      width: calc(100%/6);
+      &__status {
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 10%;
       }
-      &__assign{
-      display: flex;
-      flex-direction: column;
-      width: calc(100%/6);
+      &__assign {
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 10%;
       }
-      &__price{
-      display: flex;
-      flex-direction: column;
-      width: calc(100%/6);
+      &__price {
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 10%;
       }
-      &__id{
-      display: flex;
-      flex-direction: column;
-      width: calc(100%/6);
+      &__id {
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 10%;
       }
+}
+
+
+/* Media */
+
+@media all and(max-width:1200px) {
+      body {
+            font-size: 14px;
+      }
+      .user {
+            &__bt {
+                  font-size: 0.8em;
+                  height: 40px;
+                  width: 200px;
+            }
+            &__like {
+                  margin-left: 5%;
+            }
+            &__notify {
+                  margin-left: 5%;
+            }
+            &__avatar {
+                  margin-left: 5%;
+            }
+            &__menu {
+                  margin-left: 5%;
+            }
+      }
+      
+      .taskshead {
+            margin:50px 1%;
+      }
+
+      .tasksbody {
+            margin: 1%;
+      }
+    
+}
+
+@media all and(max-width:992px) {
+      .header-wrap {
+            font-size: 15px;
+      }
+      .taskshead {
+            font-size: 12px;
+            margin: 50px 0;
+            &__sort{
+                  margin-right: 12%;
+            }
+      }
+      
+      .tasksbody__heading{
+            font-size: 10px;
+      }
+
+      .taskitem{
+            font-size: 14px;
+      }
+     
+      .resp-menu {
+            display: initial;
+      }
+     
+      .resp-nav {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 14%;
+            text-align: center;
+      }
+     
+      .nav__item--resp {
+            &:hover {
+                  color: green;
+            }
+      }
+     
+      .balance {
+            &__current:hover {
+                  transition: .5s;
+            }
+            &__done:hover {
+                  transition: .5s;
+            }
+      }
+     
+      .resp-taskshead {
+            transform: translateY(5vh);
+      }
+     
+      .resp-tasksbody {
+            transform: translateY(5vh);
+      }
+}
+
+@media all and(max-width:768px) {
+      
+      /* body{
+            margin: 0;
+            padding: 0;
+      }
+
+     .header-wrap{
+           width: 100vw;
+           flex-wrap: wrap;
+     }
+     .user {
+           display: none;
+     }
+      .resp-nav{
+           flex-direction: column;
+      }
+      .nav__item{
+            width: 100%;
+      }
+
+      .taskitem *{
+            flex-direction: column;
+      } */
 }
